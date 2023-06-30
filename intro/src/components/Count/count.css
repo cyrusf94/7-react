@@ -1,0 +1,6 @@
+.count {
+    display: flex;
+    gap: 10px;
+    font-size: 2em;
+    justify-content: center;
+}
