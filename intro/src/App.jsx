@@ -3,20 +3,27 @@ import Nav from './components/Nav/Nav';
 import Welcome from './components/Welcome/Welcome';
 import Count from './components/Count/Count';
 import React, { useState } from 'react';
+import DisplayFruit from './components/DisplayFruit/DisplayFruit';
+import Fruit from './components/Fruit/Fruit';
 
 function App() {
 
-  let names = ["Aaron", "Kyle", "Cyrus", "Amanda", "Dante", "Angelina"]
+  const [names, setNames] = useState(["Aaron", "Kyle", "Cyrus", "Amanda", "Dante", "Angelina"])
   
-  const [ links, setLinks ] = useState(["Intro", "Components", "Props", "States"])
+  const [links, setLinks] = useState(["Intro", "Components", "Props", "States"])
 
+  // ! challenge 
+  const [favFruit, setFavFruit] = useState("")
+  const [name, setName] = useState("")
   return (
     <React.Fragment>
     <Nav links={links}/>
     <header>React Lecture</header>
     {/*  Curly braces within return are expressions */}
-    {names.map(name => <Welcome myName={name} />)}
+    {names.map(name => <Welcome allNames={names} name={name} updateNames={setNames}/>)}
     {<Count />}
+    <DisplayFruit name={name} favFruit={favFruit} />
+    <Fruit name={setName} fruit={setFavFruit}/>
     </React.Fragment>
     );
 }
@@ -51,3 +58,12 @@ export default App;
       * a Hook
 */
 
+/* 
+  ! Challenge 
+  * build an input component that takes favorite fruit
+  * build a component that displays h1 with your name and favorite fruit
+  and displays it to the user
+  * use App.jsx component as your data store location 
+  * you will need to have favFruit state variable and
+  fullName state variable
+*/
