@@ -1,0 +1,8 @@
+body {
+    background-color: rgb(197, 197, 172);
+}
+
+.posts:hover {
+    color:rgb(151, 74, 60);
+    cursor: pointer;
+}
